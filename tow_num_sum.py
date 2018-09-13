@@ -35,6 +35,7 @@ class Solution(object):
             val = l1.val + flag
             if val /10 == 1:
                 val = val%10
+                l1.val = val
                 flag = 1
             else:
                 flag = 0
@@ -42,8 +43,6 @@ class Solution(object):
 
         # 判断最后一个进位是否需要加一个节点
         if flag>0:
-            lastNode = ListNode()
-            lastNode.val = flag
-            lastNode.next = None
+            lastNode = ListNode(flag)
             l1.next = lastNode
         return head1
