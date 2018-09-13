@@ -5,6 +5,9 @@ class ListNode(object):
         self.val = x
         self.next = None
 
+"""
+两个单链表相加
+"""
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         """
