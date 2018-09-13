@@ -1,5 +1,6 @@
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
+class Solution:
+    @staticmethod
+    def lengthOfLongestSubstring(s):
         """
         :type s: str
         :rtype: int
@@ -15,3 +16,8 @@ class Solution(object):
             else:
                 str_dist[s[i]] = i
         return result
+
+    if __name__ == "__main__":
+        s = "abcdddss"
+        print lengthOfLongestSubstring(s)
+        print list()

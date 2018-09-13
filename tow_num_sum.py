@@ -13,7 +13,6 @@ class Solution(object):
         :rtype: ListNode
         """
         head1 = l1
-        head2 = l2
         # 进位
         flag = 0
 
@@ -22,50 +21,26 @@ class Solution(object):
             val = l1.val + l2.val
             l1.val = val
             l2.val = val
-            p1 = l1
-            p2 = l2
             l1 = l1.next
             l2 = l2.next
 
         if l1 is None and l2 is not None:
             # 把l1 l2替换
-            temp = l1
             l1 = l2
-            l2 = temp
 
         while l1 is not None:
             val = l1.val + flag
-            if val>9:
-                val = val - 10
+            if val /10 == 1:
+                val = val%10
                 flag = 1
-            p1 = l1
+            else:
+                flag = 0
             l1 = l1.next
 
         # 判断最后一个进位是否需要加一个节点
         if flag>0:
-            p2 = ListNode()
-            p2.val = flag
-            p2.next = None
-            p1.next = p2
+            lastNode = ListNode()
+            lastNode.val = flag
+            lastNode.next = None
+            l1.next = lastNode
         return head1
-
-    def input_data(self, nums):
-        for i in range(len(nums)):
-            if i == 0:
-                head = ListNode
-                head.val = nums[i]
-                head.next =
-            else:
-
-        node3 = ListNode
-        node3.val = 3
-        node3.next = None
-
-        node2 = ListNode
-        node2.val = 4
-        node2.next = node3
-
-        node1 = ListNode
-        node1.val = 2
-        node1.next = node2
-        print node1
