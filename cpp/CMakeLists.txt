@@ -3,4 +3,4 @@ project(cpp-practice)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(leetcode src/climbing_stairs.cpp)
+add_executable(leetcode src/frequency_tracker.cpp)

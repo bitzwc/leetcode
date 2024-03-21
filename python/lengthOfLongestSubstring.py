@@ -19,5 +19,5 @@ class Solution:
 
     if __name__ == "__main__":
         s = "abcdddss"
-        print lengthOfLongestSubstring(s)
-        print list()
+        print(lengthOfLongestSubstring(s))
+        print(list())

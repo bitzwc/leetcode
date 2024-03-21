@@ -5,4 +5,4 @@ value=seg[1].strip('{}').split(',')
 all_shibing=[]
 for i in range(len(value)):
     all_shibing=all_shibing+[int(value[i])]*int(count[i])
-print all_shibing
+print(all_shibing)

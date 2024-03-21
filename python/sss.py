@@ -13,4 +13,4 @@ while 1:
             i+=1
         if i==2*n-2:
             y=x
-            print '('+''.join(['(' if z==1 else ')' for z in x])+')'
+            print('('+''.join(['(' if z==1 else ')' for z in x])+')')
