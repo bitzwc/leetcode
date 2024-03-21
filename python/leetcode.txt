@@ -1,0 +1,101 @@
+最长不重复子字符串长度
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        sub_string = []
+        max_length = 0
+        for i in s:
+            if i not in sub_string:
+                sub_string.append(i)
+                if len(sub_string) > max_length:
+                    max_length = len(sub_string)
+            else:
+                k=sub_string.index(i)
+                if k==len(sub_string)-1:
+                    sub_string=[]
+                else:
+                    sub_string=sub_string[k+1:]
+                sub_string.append(i)
+        return max_length
+两链表相加
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        p = l1
+        q = l2
+        head = ListNode(0)
+        temp = 0
+        r = head
+        while p != None and q != None:
+            sum_val = p.val + q.val + temp
+            r.next = ListNode(sum_val % 10)
+            temp = sum_val / 10
+            r = r.next
+            p = p.next
+            q = q.next
+        while p == None and q != None:
+            sum_val = q.val + temp
+            r.next = ListNode(sum_val % 10)
+            temp = sum_val / 10
+            r = r.next
+            q = q.next
+        while p != None and q == None:
+            sum_val = p.val + temp
+            r.next = ListNode(sum_val % 10)
+            temp = sum_val / 10
+            r = r.next
+            p = p.next
+        if temp != 0:
+            r.next= ListNode(temp)
+            r.next.next=None
+        l3 = head.next
+        return l3
+打印z字形字符
+class Solution(object):
+    def convert(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        m=len(s)
+        j=0
+        plus=1
+        if numRows==1:
+            return s
+        else:
+            result =['']*numRows
+            for i in range(m):
+                result[j]+=s[i]
+                j=j+plus
+                if j==numRows-1:
+                    plus=-1
+                if j==0:
+                    plus=1
+            return ''.join(result)
+反转整数
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        if x >= 0:
+            result=int(str(x)[::-1])
+            if result>2**31-1:
+                return 0
+            else:
+                return result
+        else:
+            result=-1*int(str(-x)[::-1])
+            if result<-2**31:
+                return 0
+            else:
+                return result
